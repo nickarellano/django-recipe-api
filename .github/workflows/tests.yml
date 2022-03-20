@@ -11,8 +11,8 @@ jobs:
       - name: Install docker-compose
         run: pip install docker-compose
 
-      - name: Create environment
-        run: docker-compose up db -d
+      - name: Start the database before the tests
+        run: docker-compose up -d db
 
       - name: Run tests
         run: docker-compose run app sh -c "python manage.py test"
