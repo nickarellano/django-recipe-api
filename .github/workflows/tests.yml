@@ -1,8 +1,8 @@
-name: Lint
+name: Tests
 on: [push, pull_request]
 jobs:
   lint:
-    name: Lint
+    name: Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -11,5 +11,5 @@ jobs:
       - name: Install docker-compose
         run: pip install docker-compose
 
-      - name: Run linter
-        run: docker-compose run app sh -c "flake8"
+      - name: Run tests
+        run: docker-compose run app sh -c "python manage.py test"
