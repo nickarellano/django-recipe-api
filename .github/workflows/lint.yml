@@ -1,0 +1,15 @@
+name: Lint
+on: [push, pull_request]
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build docker images
+        run: pip install docker-compose
+
+      - name: Run linter
+        run: docker-compose run app sh -c "flake8"
