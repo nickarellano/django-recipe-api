@@ -12,7 +12,7 @@ jobs:
         run: pip install docker-compose
 
       - name: Create environment
-        run: docker-compose up
+        run: docker-compose up db -d
 
       - name: Run tests
         run: docker-compose run app sh -c "python manage.py test"
