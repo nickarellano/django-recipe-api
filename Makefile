@@ -11,7 +11,7 @@ down:
 	docker-compose down
 
 lint:
-	flake8 app/
+	flake8 .
 
 format:
 	black .
